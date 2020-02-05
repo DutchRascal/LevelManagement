@@ -21,7 +21,10 @@ namespace SampleGame
         public bool IsGameOver { get { return _isGameOver; } }
 
         [SerializeField]
-        int nextLevelIndex;
+        private string nextLevelName;
+
+        [SerializeField]
+        private int nextLevelIndex;
 
         // initialize references
         private void Awake()
@@ -61,46 +64,58 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
+
                 LoadNextLevel();
+
             }
         }
 
-        private void LoadNextLevel()
+        private void LoadLevel(string levelName)
         {
-            nextLevelIndex = SceneManager.GetActiveScene().buildIndex;
-            if (nextLevelIndex < SceneManager.sceneCount)
+            if (Application.CanStreamedLevelBeLoaded(levelName))
             {
-                nextLevelIndex++;
-                LoadLevel(nextLevelIndex);
+                SceneManager.LoadScene(levelName);
             }
             else
             {
-                SceneManager.LoadScene(0);
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!");
+            }
+        }
+
+        private void LoadLevel(int levelIndex)
+        {
+            if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(levelIndex);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!");
             }
         }
 
         private void ReloadLevel()
         {
-            LoadLevel(SceneManager.GetActiveScene().name);
+            LoadLevel(SceneManager.GetActiveScene().buildIndex);
         }
 
-        private void LoadLevel(string levelName)
+        private void LoadNextLevel()
         {
-            SceneManager.LoadScene(levelName);
-        }
+            //Scene currentScene = SceneManager.GetActiveScene();
+            //int currentSceneIndex = currentScene.buildIndex;
+            //int nextSceneIndex = currentSceneIndex + 1;
+            //int totalSceneCount = SceneManager.sceneCountInBuildSettings;
+            //nextSceneIndex = nextSceneIndex % totalSceneCount;
 
-        private void LoadLevel(int levelIndex)
-        {
-            SceneManager.LoadScene(levelIndex);
-        }
+            int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) %
+                SceneManager.sceneCountInBuildSettings;
 
+            LoadLevel(nextSceneIndex);
+
+        }
         // check for the end game condition on each frame
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                ReloadLevel();
-            }
             if (_objective != null & _objective.IsComplete)
             {
                 EndLevel();
