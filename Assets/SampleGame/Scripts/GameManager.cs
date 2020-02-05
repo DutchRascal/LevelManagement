@@ -61,17 +61,27 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
-                nextLevelIndex = SceneManager.GetActiveScene().buildIndex;
-                if (nextLevelIndex < SceneManager.sceneCount)
-                {
-                    nextLevelIndex++;
-                    LoadLevel(nextLevelIndex);
-                }
-                else
-                {
-                    SceneManager.LoadScene(0);
-                }
+                LoadNextLevel();
             }
+        }
+
+        private void LoadNextLevel()
+        {
+            nextLevelIndex = SceneManager.GetActiveScene().buildIndex;
+            if (nextLevelIndex < SceneManager.sceneCount)
+            {
+                nextLevelIndex++;
+                LoadLevel(nextLevelIndex);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+
+        private void ReloadLevel()
+        {
+            LoadLevel(SceneManager.GetActiveScene().name);
         }
 
         private void LoadLevel(string levelName)
@@ -87,11 +97,14 @@ namespace SampleGame
         // check for the end game condition on each frame
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ReloadLevel();
+            }
             if (_objective != null & _objective.IsComplete)
             {
                 EndLevel();
             }
         }
-
     }
 }
