@@ -101,18 +101,23 @@ namespace SampleGame
 
         public void LoadNextLevel()
         {
-            //Scene currentScene = SceneManager.GetActiveScene();
-            //int currentSceneIndex = currentScene.buildIndex;
-            //int nextSceneIndex = currentSceneIndex + 1;
-            //int totalSceneCount = SceneManager.sceneCountInBuildSettings;
-            //nextSceneIndex = nextSceneIndex % totalSceneCount;
-
             int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) %
                 SceneManager.sceneCountInBuildSettings;
 
             LoadLevel(nextSceneIndex);
-
         }
+
+        public void QuitGame()
+        {
+#if UNITY_EDITOR
+
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit()
+            
+#endif
+        }
+
         // check for the end game condition on each frame
         private void Update()
         {
