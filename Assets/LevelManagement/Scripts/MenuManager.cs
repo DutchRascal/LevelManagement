@@ -29,7 +29,6 @@ namespace LevelManagement
             }
 
             Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab };
-
             foreach (Menu prefab in menuPrefabs)
             {
                 if (prefab != null)
@@ -60,9 +59,9 @@ namespace LevelManagement
                 {
                     menu.gameObject.SetActive(false);
                 }
-                menuInstance.gameObject.SetActive(true);
-                _menuStack.Push(menuInstance);
             }
+            menuInstance.gameObject.SetActive(true);
+            _menuStack.Push(menuInstance);
         }
 
         public void CloseMenu()
