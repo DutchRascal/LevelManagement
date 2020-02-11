@@ -474,7 +474,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114645271240747092}
-        m_MethodName: OnQuitPressed
+        m_MethodName: OnBackPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1808025250575552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecfb86390688b4baf962b8a5228301a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a132665a2aaa43d2a8a269f7e263bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114692228743333576

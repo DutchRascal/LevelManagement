@@ -40,7 +40,6 @@ namespace SampleGame
             else
             {
                 _instance = this;
-
                 _player = Object.FindObjectOfType<ThirdPersonCharacter>();
                 _objective = Object.FindObjectOfType<Objective>();
                 _goalEffect = Object.FindObjectOfType<GoalEffect>();

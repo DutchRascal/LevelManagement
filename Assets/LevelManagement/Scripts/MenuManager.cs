@@ -7,15 +7,16 @@ namespace LevelManagement
 
     public class MenuManager : MonoBehaviour
     {
-        private static MenuManager _instance;
 
         [SerializeField]
         private Transform _menuParent;
         private Stack<Menu> _menuStack = new Stack<Menu>();
 
-        public Menu mainMenuPrefab;
-        public Menu settingsMenuPrefab;
-        public Menu creditsScreenPrefab;
+        public MainMenu mainMenuPrefab;
+        public SettingsMenu settingsMenuPrefab;
+        public CreditsScreen creditsScreenPrefab;
+
+        private static MenuManager _instance;
         public static MenuManager Instance { get { return _instance; } }
 
         private void Awake()
