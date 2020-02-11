@@ -8,6 +8,8 @@ namespace SampleGame
 {
     public class GameManager : MonoBehaviour
     {
+        private static GameManager _instance;
+
         // reference to player
         private ThirdPersonCharacter _player;
 
@@ -20,6 +22,8 @@ namespace SampleGame
         private bool _isGameOver;
         public bool IsGameOver { get { return _isGameOver; } }
 
+        public static GameManager Instance { get { return _instance; } }
+
         [SerializeField]
         private string nextLevelName;
 
@@ -29,10 +33,28 @@ namespace SampleGame
         // initialize references
         private void Awake()
         {
-            _player = Object.FindObjectOfType<ThirdPersonCharacter>();
-            _objective = Object.FindObjectOfType<Objective>();
-            _goalEffect = Object.FindObjectOfType<GoalEffect>();
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instance = this;
+
+                _player = Object.FindObjectOfType<ThirdPersonCharacter>();
+                _objective = Object.FindObjectOfType<Objective>();
+                _goalEffect = Object.FindObjectOfType<GoalEffect>();
+            }
         }
+
+        private void OnDestroy()
+        {
+            if (_instance == this)
+            {
+                _instance = null;
+            }
+        }
+
 
         // end the level
         public void EndLevel()

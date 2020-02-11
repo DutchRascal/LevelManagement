@@ -225,13 +225,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c34c1f8afe547e4a50f5a691e229eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _menuParent: {fileID: 0}
   mainMenuPrefab: {fileID: 114645271240747092, guid: 01526289059634126975719f0c08f61d,
     type: 2}
   settingsMenuPrefab: {fileID: 114593642903478140, guid: b2e0753caf23c44ff98a078e3f956305,
     type: 2}
   creditsScreenPrefab: {fileID: 114186331223444614, guid: 7b3fa115254fa4b4eabfd6f28f3d8923,
     type: 2}
-  _menuParent: {fileID: 0}
 --- !u!1 &861781990
 GameObject:
   m_ObjectHideFlags: 0
