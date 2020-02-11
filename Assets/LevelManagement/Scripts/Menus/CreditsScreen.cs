@@ -4,31 +4,7 @@ using UnityEngine;
 
 namespace LevelManagement
 {
-    public class CreditsScreen : Menu
+    public class CreditsScreen : Menu<CreditsScreen>
     {
-        private static CreditsScreen _instance;
-
-        public static CreditsScreen Instance { get { return _instance; } }
-
-        private void Awake()
-        {
-            if (_instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-        }
-
-        private void OnDestroy()
-        {
-            if (_instance == this)
-            {
-                _instance = null;
-            }
-        }
-
     }
 }

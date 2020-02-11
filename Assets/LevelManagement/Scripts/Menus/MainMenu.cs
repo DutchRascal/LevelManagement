@@ -6,36 +6,8 @@ using UnityEngine;
 
 namespace LevelManagement
 {
-    public class MainMenu : Menu
+    public class MainMenu : Menu<MainMenu>
     {
-        private static MainMenu _instance;
-
-        public static MainMenu Instance { get { return _instance; } }
-
-        private void Awake()
-        {
-            if (_instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-        }
-
-        private void OnDestroy()
-        {
-            _instance = null;
-        }
-
-        public void OnPlayPressed()
-        {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.LoadNextLevel();
-            }
-        }
 
         public void OnSettingsPressed()
         {
