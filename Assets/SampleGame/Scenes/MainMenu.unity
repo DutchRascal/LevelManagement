@@ -232,6 +232,10 @@ MonoBehaviour:
     type: 2}
   creditsScreenPrefab: {fileID: 114186331223444614, guid: 7b3fa115254fa4b4eabfd6f28f3d8923,
     type: 2}
+  gameMenuPrefab: {fileID: 114170413516049126, guid: db04d7201b3b24675a1846f6c8e621ff,
+    type: 2}
+  pauseMenuPrefab: {fileID: 114142466988443206, guid: 034620c7e065f42559c5cd3c7734119e,
+    type: 2}
 --- !u!1 &861781990
 GameObject:
   m_ObjectHideFlags: 0

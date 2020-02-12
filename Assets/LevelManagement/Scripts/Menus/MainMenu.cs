@@ -8,10 +8,20 @@ namespace LevelManagement
 {
     public class MainMenu : Menu<MainMenu>
     {
+        public void OnPlayPressed()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.LoadNextLevel();
+            }
+            if (MenuManager.Instance != null && GameManager.Instance != null)
+            {
+                MenuManager.Instance.OpenMenu(GameMenu.Instance);
+            }
+        }
 
         public void OnSettingsPressed()
         {
-            var sm = SettingsMenu.Instance;
             if (MenuManager.Instance != null && SettingsMenu.Instance != null)
             {
                 MenuManager.Instance.OpenMenu(SettingsMenu.Instance);

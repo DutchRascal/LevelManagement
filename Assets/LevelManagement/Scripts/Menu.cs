@@ -20,10 +20,11 @@ namespace LevelManagement
             else
             {
                 _instance = (T)this;
+                DontDestroyOnLoad(transform.root.gameObject);
             }
         }
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             _instance = null;
         }
