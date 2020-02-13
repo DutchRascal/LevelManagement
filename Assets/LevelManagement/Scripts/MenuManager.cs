@@ -32,7 +32,7 @@ namespace LevelManagement
             {
                 _instance = this;
                 InitializeMenus();
-                DontDestroyOnLoad(transform.root.gameObject);
+                DontDestroyOnLoad(gameObject);
             }
         }
 
@@ -51,7 +51,7 @@ namespace LevelManagement
                 GameObject menuParentObject = new GameObject("Menus");
                 _menuParent = menuParentObject.transform;
             }
-            DontDestroyOnLoad(transform.root.gameObject);
+            DontDestroyOnLoad(_menuParent);
 
             Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab, pauseMenuPrefab, gameMenuPrefab };
             foreach (Menu prefab in menuPrefabs)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace SampleGame
-{  
+{
     [RequireComponent(typeof(Collider))]
     public class Objective : MonoBehaviour
     {
@@ -26,6 +26,7 @@ namespace SampleGame
         {
             if (other.tag == _playerTag)
             {
+                print("Yes");
                 CompleteObjective();
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine.SceneManagement;
+using LevelManagement;
 
 namespace SampleGame
 {
@@ -29,6 +30,9 @@ namespace SampleGame
 
         [SerializeField]
         private int nextLevelIndex;
+
+        [SerializeField]
+        private int mainMenuIndex = 0;
 
         // initialize references
         private void Awake()
@@ -107,6 +111,10 @@ namespace SampleGame
         {
             if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
             {
+                if (levelIndex == mainMenuIndex)
+                {
+                    MainMenu.Open();
+                }
                 SceneManager.LoadScene(levelIndex);
             }
             else

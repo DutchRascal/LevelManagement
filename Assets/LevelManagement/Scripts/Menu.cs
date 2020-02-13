@@ -20,13 +20,21 @@ namespace LevelManagement
             else
             {
                 _instance = (T)this;
-                DontDestroyOnLoad(transform.root.gameObject);
             }
         }
 
         protected virtual void OnDestroy()
         {
             _instance = null;
+        }
+
+
+        public static void Open()
+        {
+            if (MenuManager.Instance != null && Instance != null)
+            {
+                MenuManager.Instance.OpenMenu(Instance);
+            }
         }
     }
 
