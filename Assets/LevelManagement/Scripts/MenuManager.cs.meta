@@ -3,7 +3,20 @@ guid: 30c34c1f8afe547e4a50f5a691e229eb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _menuParent: {instanceID: 0}
+  - mainMenuPrefab: {fileID: 114645271240747092, guid: 01526289059634126975719f0c08f61d,
+      type: 2}
+  - settingsMenuPrefab: {fileID: 114593642903478140, guid: b2e0753caf23c44ff98a078e3f956305,
+      type: 2}
+  - creditsScreenPrefab: {fileID: 114186331223444614, guid: 7b3fa115254fa4b4eabfd6f28f3d8923,
+      type: 2}
+  - gameMenuPrefab: {fileID: 114170413516049126, guid: db04d7201b3b24675a1846f6c8e621ff,
+      type: 2}
+  - pauseMenuPrefab: {fileID: 114142466988443206, guid: 034620c7e065f42559c5cd3c7734119e,
+      type: 2}
+  - winScreenPrefab: {fileID: 114646673805431844, guid: a0d44095cdc1e4bb4af99be10c2fd554,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

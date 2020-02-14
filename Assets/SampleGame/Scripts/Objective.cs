@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using LevelManagement;
 using UnityEngine;
 
 namespace SampleGame
@@ -26,7 +27,6 @@ namespace SampleGame
         {
             if (other.tag == _playerTag)
             {
-                print("Yes");
                 CompleteObjective();
             }
         }

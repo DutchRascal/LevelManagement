@@ -25,15 +25,6 @@ namespace SampleGame
 
         public static GameManager Instance { get { return _instance; } }
 
-        [SerializeField]
-        private string nextLevelName;
-
-        [SerializeField]
-        private int nextLevelIndex;
-
-        [SerializeField]
-        private int mainMenuIndex = 0;
-
         // initialize references
         private void Awake()
         {
@@ -89,52 +80,10 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
-
-                LoadNextLevel();
-
+                WinScreen.Open();
             }
         }
 
-        private void LoadLevel(string levelName)
-        {
-            if (Application.CanStreamedLevelBeLoaded(levelName))
-            {
-                SceneManager.LoadScene(levelName);
-            }
-            else
-            {
-                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!");
-            }
-        }
-
-        private void LoadLevel(int levelIndex)
-        {
-            if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
-            {
-                if (levelIndex == mainMenuIndex)
-                {
-                    MainMenu.Open();
-                }
-                SceneManager.LoadScene(levelIndex);
-            }
-            else
-            {
-                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!");
-            }
-        }
-
-        public void ReloadLevel()
-        {
-            LoadLevel(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        public void LoadNextLevel()
-        {
-            int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) %
-                SceneManager.sceneCountInBuildSettings;
-
-            LoadLevel(nextSceneIndex);
-        }
 
         public void QuitGame()
         {

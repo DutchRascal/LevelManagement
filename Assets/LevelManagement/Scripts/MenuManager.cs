@@ -17,6 +17,7 @@ namespace LevelManagement
         public CreditsScreen creditsScreenPrefab;
         public GameMenu gameMenuPrefab;
         public PauseMenu pauseMenuPrefab;
+        public WinScreen winScreenPrefab;
 
 
         private static MenuManager _instance;
@@ -53,7 +54,7 @@ namespace LevelManagement
             }
             DontDestroyOnLoad(_menuParent);
 
-            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab, pauseMenuPrefab, gameMenuPrefab };
+            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab, pauseMenuPrefab, gameMenuPrefab, winScreenPrefab };
             foreach (Menu prefab in menuPrefabs)
             {
                 if (prefab != null)

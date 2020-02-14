@@ -182,9 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676ac7334c0934ef4a48795858576377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: 
-  nextLevelIndex: 0
-  mainMenuIndex: 0
 --- !u!1 &714267054
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +232,8 @@ MonoBehaviour:
   gameMenuPrefab: {fileID: 114170413516049126, guid: db04d7201b3b24675a1846f6c8e621ff,
     type: 2}
   pauseMenuPrefab: {fileID: 114142466988443206, guid: 034620c7e065f42559c5cd3c7734119e,
+    type: 2}
+  winScreenPrefab: {fileID: 114646673805431844, guid: a0d44095cdc1e4bb4af99be10c2fd554,
     type: 2}
 --- !u!1 &861781990
 GameObject:
