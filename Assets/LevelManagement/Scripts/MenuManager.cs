@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 namespace LevelManagement
 {
@@ -12,12 +13,18 @@ namespace LevelManagement
         private Transform _menuParent;
         private Stack<Menu> _menuStack = new Stack<Menu>();
 
-        public MainMenu mainMenuPrefab;
-        public SettingsMenu settingsMenuPrefab;
-        public CreditsScreen creditsScreenPrefab;
-        public GameMenu gameMenuPrefab;
-        public PauseMenu pauseMenuPrefab;
-        public WinScreen winScreenPrefab;
+        [SerializeField]
+        private MainMenu mainMenuPrefab;
+        [SerializeField]
+        private SettingsMenu settingsMenuPrefab;
+        [SerializeField]
+        private CreditsScreen creditsScreenPrefab;
+        [SerializeField]
+        private GameMenu gameMenuPrefab;
+        [SerializeField]
+        private PauseMenu pauseMenuPrefab;
+        [SerializeField]
+        private WinScreen winScreenPrefab;
 
 
         private static MenuManager _instance;
@@ -54,9 +61,13 @@ namespace LevelManagement
             }
             DontDestroyOnLoad(_menuParent);
 
-            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab, pauseMenuPrefab, gameMenuPrefab, winScreenPrefab };
-            foreach (Menu prefab in menuPrefabs)
+            System.Type mType = this.GetType();
+            BindingFlags myFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly;
+            FieldInfo[] fields = mType.GetFields(myFlags);
+
+            foreach (FieldInfo field in fields)
             {
+                Menu prefab = field.GetValue(this) as Menu;
                 if (prefab != null)
                 {
                     Menu menuInstance = Instantiate(prefab, _menuParent);

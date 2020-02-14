@@ -43,7 +43,6 @@ namespace LevelManagement
     {
         public virtual void OnBackPressed()
         {
-            print("OnBackPressed");
             if (MenuManager.Instance != null)
             {
                 MenuManager.Instance.CloseMenu();
