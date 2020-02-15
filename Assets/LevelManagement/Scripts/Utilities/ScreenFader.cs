@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using LevelManagement;
 
 public class ScreenFader : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ScreenFader : MonoBehaviour
     private float _fadeDuration = 2f;
     [SerializeField]
     private MaskableGraphic[] graphicsToFade;
+
+    public float FadeDuration { get { return _fadeDuration; } }
 
     private void SetAlpha(float alpha)
     {

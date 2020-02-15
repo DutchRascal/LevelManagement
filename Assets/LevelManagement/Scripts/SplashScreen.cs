@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,9 +27,11 @@ namespace LevelManagement
 
         private IEnumerator FadeAndLoadRoutine()
         {
-            LevelLoader.LoadMainMenuLevel();
             yield return new WaitForSeconds(delay);
             _screenFader.FadeOff();
+            LevelLoader.LoadMainMenuLevel();
+            yield return new WaitForSeconds(_screenFader.FadeDuration);
+            Object.Destroy(gameObject);
         }
     }
 }
