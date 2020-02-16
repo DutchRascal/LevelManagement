@@ -609,6 +609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a132665a2aaa43d2a8a269f7e263bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playDelay: 0.5
+  startTransitionPrefab: {fileID: 114681340420322966, guid: 34f1f7459923b4f2ab117dfb007ece05,
+    type: 2}
 --- !u!114 &114692228743333576
 MonoBehaviour:
   m_ObjectHideFlags: 1
