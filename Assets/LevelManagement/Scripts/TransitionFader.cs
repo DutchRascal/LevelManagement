@@ -8,17 +8,19 @@ public class TransitionFader : ScreenFader
     [SerializeField] private float _lifetime = 1f;
     [SerializeField] private float _delay = 0.3f;
 
+    public float Delay { get { return _delay; } }
+
     protected void Awake()
     {
-        _lifetime = Mathf.Clamp(_lifetime, FadeOnDuration + FadeOffDuration + _delay, 10f);
+        _lifetime = Mathf.Clamp(_lifetime, FadeOnDuration + FadeOffDuration + Delay, 10f);
     }
 
     private IEnumerator PlayRoutine()
     {
         SetAlpha(_clearAlpha);
-        yield return new WaitForSeconds(_delay);
+        yield return new WaitForSeconds(Delay);
         FadeOn();
-        float onTime = _lifetime - (FadeOffDuration + _delay);
+        float onTime = _lifetime - (FadeOffDuration + Delay);
         yield return new WaitForSeconds(onTime);
         FadeOff();
         Object.Destroy(gameObject, FadeOffDuration);
