@@ -6,5 +6,16 @@ namespace LevelManagement
 {
     public class SettingsMenu : Menu<SettingsMenu>
     {
+        public void OnMasterVolumeChanged(float volume)
+        {
+        }
+
+        public void OnSFXVolumeChanged(float volume)
+        {
+        }
+
+        public void OnMusicVolumeChanged(float volume)
+        {
+        }
     }
 }
