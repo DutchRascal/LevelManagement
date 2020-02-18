@@ -32,39 +32,35 @@ namespace LevelManagement
             {
                 _dataManager.MasterVolume = volume;
             }
-            //PlayerPrefs.SetFloat("MasterVolume", volume);
         }
 
         public void OnSFXVolumeChanged(float volume)
         {
             _dataManager.SfxVolume = volume;
-            //PlayerPrefs.SetFloat("SFXVolume", volume);
         }
 
         public void OnMusicVolumeChanged(float volume)
         {
             _dataManager.MusicVolume = volume;
-            //PlayerPrefs.SetFloat("MusicVolume", volume);
         }
 
         public override void OnBackPressed()
         {
             base.OnBackPressed();
-            //PlayerPrefs.Save();
+            if (_dataManager != null)
+            {
+                _dataManager.Save();
+            }
         }
 
         public void LoadData()
         {
             if (_dataManager == null || _masterVolumeSlider == null || _sfxVolumeSlider == null || _musicVolumeSlider == null)
             { return; }
+            _dataManager.Load();
             _masterVolumeSlider.value = _dataManager.MasterVolume;
             _sfxVolumeSlider.value = _dataManager.SfxVolume;
             _musicVolumeSlider.value = _dataManager.MusicVolume;
-
-
-            //_masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-            //_sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-            //_musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         }
     }
 }
