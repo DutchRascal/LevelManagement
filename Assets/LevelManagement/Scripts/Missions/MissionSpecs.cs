@@ -16,7 +16,7 @@ namespace LevelManagement.Missions
         [SerializeField] protected Sprite _image;
 
         public string Name => _name;
-        public string Descriptionget => _description;
+        public string Description => _description;
         public string SceneName => _sceneName;
         public string Id => _id;
         public Sprite Image => _image;

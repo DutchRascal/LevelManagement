@@ -23,7 +23,7 @@ MonoBehaviour:
     _sceneName: Level2
     _id: L2
     _image: {fileID: 21300000, guid: c2fb82e02974844619bf4c2d3a6cbd47, type: 3}
-  - _name: 'Level 3: another level'
+  - _name: 'Level 3: Another level'
     _description: Antother level of the game.
     _sceneName: Level3
     _id: L3
