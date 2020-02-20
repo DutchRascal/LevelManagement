@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Missions
   m_EditorClassIdentifier: 
   _missions:
-  - _name: 
-    _description: 
-    _sceneName: 
-    _id: 
-    _image: {fileID: 0}
-  - _name: 
-    _description: 
-    _sceneName: 
-    _id: 
-    _image: {fileID: 0}
-  - _name: 
-    _description: 
-    _sceneName: 
-    _id: 
-    _image: {fileID: 0}
+  - _name: 'Level 1: Tutorial'
+    _description: Starter level. Tutorial and introduction.
+    _sceneName: Level1
+    _id: L1
+    _image: {fileID: 21300000, guid: 5c1d41650726d411cb3c71f9ef183778, type: 3}
+  - _name: 'Level 2: A new level'
+    _description: Intermediate level. Take the player further.
+    _sceneName: Level2
+    _id: L2
+    _image: {fileID: 21300000, guid: c2fb82e02974844619bf4c2d3a6cbd47, type: 3}
+  - _name: 'Level 3: another level'
+    _description: Antother level of the game.
+    _sceneName: Level3
+    _id: L3
+    _image: {fileID: 21300000, guid: 641ba5f38c55441d280752fc9049afb2, type: 3}
