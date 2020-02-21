@@ -25,6 +25,8 @@ namespace LevelManagement
         private PauseMenu pauseMenuPrefab;
         [SerializeField]
         private WinScreen winScreenPrefab;
+        [SerializeField]
+        private LevelSelectMenu levelSelctMenuPrefab;
 
 
         private static MenuManager _instance;

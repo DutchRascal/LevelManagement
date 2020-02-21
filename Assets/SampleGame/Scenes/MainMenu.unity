@@ -252,6 +252,8 @@ MonoBehaviour:
     type: 3}
   winScreenPrefab: {fileID: 114646673805431844, guid: a0d44095cdc1e4bb4af99be10c2fd554,
     type: 3}
+  levelSelctMenuPrefab: {fileID: 7060580360610173896, guid: 538c4cddf1549401dae0bc59bc40bfba,
+    type: 3}
 --- !u!1 &861781990
 GameObject:
   m_ObjectHideFlags: 0
